@@ -11,6 +11,17 @@ https://feedback-system-gemini.vercel.app
 
 **セキュリティ:** URLを知っている人のみアクセス可能です。
 
+### **ワンクリックデプロイ**
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/19870413kazu/feedback-system-gemini&env=GOOGLE_API_KEY&envDescription=Google%20Generative%20AI%20API%20Key&envLink=https://makersuite.google.com/app/apikey)
+
+または、ローカルでデプロイ：
+
+```bash
+npm install -g vercel
+vercel --prod
+```
+
 ---
 
 ## ✨ 主な機能

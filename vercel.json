@@ -13,7 +13,8 @@
     }
   ],
   "env": {
-    "GOOGLE_API_KEY": "@google_api_key",
-    "PORT": "3000"
+    "GOOGLE_API_KEY": "AIzaSyDa1sOqaPDx09y9_awAfvJSeFafbLZI2Rg",
+    "PORT": "3000",
+    "NODE_ENV": "production"
   }
 }

@@ -690,6 +690,16 @@
             if (!message) return;
 
             const chatMessages = document.getElementById('chatMessages');
+            
+            // チェック: フィードバックが生成されているか確認
+            if (!currentFeedback || Object.keys(currentScores).length === 0) {
+                chatMessages.innerHTML += `<div class="message user">${message}</div>`;
+                chatMessages.innerHTML += `<div class="message assistant">申し訳ありません。先に📊 フィードバックタブでスコアを入力して、フィードバックを生成してください。</div>`;
+                document.getElementById('chatInput').value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                return;
+            }
+
             chatMessages.innerHTML += `<div class="message user">${message}</div>`;
             document.getElementById('chatInput').value = '';
 
@@ -710,11 +720,11 @@
                     chatMessages.innerHTML += `<div class="message assistant">${data.response}</div>`;
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 } else {
-                    chatMessages.innerHTML += `<div class="message assistant">申し訳ありません。エラーが発生しました。</div>`;
+                    chatMessages.innerHTML += `<div class="message assistant">申し訳ありません。エラーが発生しました: ${data.error}</div>`;
                 }
             } catch (error) {
                 console.error('エラー:', error);
-                chatMessages.innerHTML += `<div class="message assistant">通信エラーが発生しました。</div>`;
+                chatMessages.innerHTML += `<div class="message assistant">通信エラーが発生しました。サーバーに接続できません。</div>`;
             }
         });
 

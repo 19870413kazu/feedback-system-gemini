@@ -26,35 +26,34 @@
         }
 
         .container {
-            max-width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            padding: 0 15px;
         }
 
         /* ===== ナビゲーション ===== */
         .mock-nav {
             background: #FFFFFF;
-            padding: 10px;
+            padding: 12px;
             border-radius: 12px;
             margin-bottom: 15px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            justify-content: center;
         }
 
         .mock-nav button {
-            padding: 8px 10px;
+            padding: 10px 12px;
             border: 2px solid #F3E5AB;
             background: #FFFFFF;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 11px;
+            font-size: 12px;
             transition: all 0.3s;
-            flex: 1;
-            min-width: 80px;
             color: #558B2F;
         }
 
@@ -70,9 +69,9 @@
             display: none;
             background: #FFFFFF;
             border-radius: 16px;
-            padding: 20px;
+            padding: 25px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            min-height: 60vh;
+            min-height: 600px;
             animation: fadeIn 0.3s ease-in;
         }
 
@@ -153,9 +152,22 @@
         /* ===== スコア入力 ===== */
         .score-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
             margin-bottom: 15px;
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 1024px) {
+            .score-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .score-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .score-input {
@@ -166,15 +178,15 @@
         .score-input label {
             font-weight: 600;
             color: #558B2F;
-            margin-bottom: 6px;
-            font-size: 12px;
+            margin-bottom: 8px;
+            font-size: 13px;
         }
 
         .score-input input {
-            padding: 8px;
+            padding: 10px 12px;
             border: 2px solid #E8F5E9;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 15px;
             background: #F8FFFE;
             transition: border-color 0.3s;
             color: #4A5568;
@@ -267,6 +279,28 @@
             line-height: 1.8;
             color: #4A5568;
             font-size: 14px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        /* スクロールバーのスタイル */
+        .feedback-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .feedback-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .feedback-content::-webkit-scrollbar-thumb {
+            background: #CE93D8;
+            border-radius: 10px;
+        }
+
+        .feedback-content::-webkit-scrollbar-thumb:hover {
+            background: #BA68C8;
         }
 
         .feedback-section {
